@@ -210,7 +210,7 @@ class Program
                             if (year_record == answer2.Year && month_record == answer2.Month && day_record == answer2.Day && hour_record == answer2.Hour && minute_record == answer2.Minute)
                             {
 
-                                string record_format = record.dt.Replace("-", "/");
+                          
 
                                 if (record.fof2 == null)
                                 {
