@@ -55,11 +55,11 @@ class Program
         //añade un cero a las fechas ingresadas por el susuario menores a 10
         if (since_month >= 1 && since_month < 10)
         {
-            fecha2 = since_year + "-" + "0" + since_month + "-" + "01";
+            fecha2 = since_year + "/" + "0" + since_month + "/" + "01";
         }
         else
         {
-            fecha2 = since_year + "-" + since_month + "-" + "01";
+            fecha2 = since_year + "/" + since_month + "/" + "01";
         }
 
 
@@ -83,7 +83,7 @@ class Program
         string ruta = (Console.ReadLine());
         //archivo txt que se guarda en la pc
         StreamWriter sw = new StreamWriter(ruta + since_year + since_month + ".txt", true, Encoding.ASCII);
-        // C:\\Users\\Alvaro\\Desktop\\Tests_ionosfera\\
+        // C:\Users\Alvaro\Documents\test_ionosfera\
 
 
         int año = since_year;
@@ -143,9 +143,9 @@ class Program
                         if (bandera == true)
                         {
 
-                            string nuevaFechaStr = answer2.ToString("yyyy-MM-dd; HH:mm:ss");
+                            string nuevaFechaStr = answer2.ToString("yyyy/MM/dd;HH:mm:ss");
 
-                            sw.Write(nuevaFechaStr + "; " + "C" + " " + "\n");
+                            sw.Write(nuevaFechaStr + ";" + "C" + " " + "\n");
                         }
 
                         if (answer2.Hour == 23 && (answer2.Minute == 45 || answer2.Minute == 50))
@@ -210,16 +210,18 @@ class Program
                             if (year_record == answer2.Year && month_record == answer2.Month && day_record == answer2.Day && hour_record == answer2.Hour && minute_record == answer2.Minute)
                             {
 
+                                string record_format = record.dt.Replace("-", "/");
+
                                 if (record.fof2 == null)
                                 {
 
-                                    sw.Write(record.dt.Substring(0, 10) + ";" + record.dt.Substring(10) + "; " + "NULL" + " " + "\n");
+                                    sw.Write(record.dt.Replace("-", "/").Substring(0, 10) + ";" + record.dt.Substring(11) + ";" + "NULL" + " " + "\n");
 
                                 }
                                 else
                                 {
 
-                                    sw.Write(record.dt.Substring(0, 10) + ";" + record.dt.Substring(10) + "; " + record.fof2 + " " + "\n");
+                                    sw.Write(record.dt.Replace("-", "/").Substring(0, 10) + ";" + record.dt.Substring(11) + ";" + record.fof2 + " " + "\n");
 
                                 }
                                 //incrementa minutos a la fecha imaginaria
@@ -242,13 +244,13 @@ class Program
                                 if (record.fof2 == null)
                                 {
 
-                                    sw.Write(record.dt.Substring(0, 10) + ";" + record.dt.Substring(10) + "; " + "NULL" + " " + "\n");
+                                    sw.Write(record.dt.Replace("-", "/").Substring(0, 10) + ";" + record.dt.Substring(11) + ";" + "NULL" + " " + "\n");
 
                                 }
                                 else
                                 {
 
-                                    sw.Write(record.dt.Substring(0, 10) + ";" + record.dt.Substring(10) + "; " + record.fof2 + " " + "\n");
+                                    sw.Write(record.dt.Replace("-", "/").Substring(0, 10) + ";" + record.dt.Substring(11) + ";" + record.fof2 + " " + "\n");
 
                                 }
                                 //incrementa minutos a la fecha imaginaria
@@ -289,9 +291,9 @@ class Program
                                     if (bandera == true)
                                     {
 
-                                        string nuevaFechaStr = answer2.ToString("yyyy-MM-dd; HH:mm:ss");
+                                        string nuevaFechaStr = answer2.ToString("yyyy/MM/dd;HH:mm:ss");
 
-                                        sw.Write(nuevaFechaStr + "; " + "C" + " " + "\n");
+                                        sw.Write(nuevaFechaStr + ";" + "C" + " " + "\n");
 
 
                                     }
@@ -301,13 +303,13 @@ class Program
                                         if (record.fof2 == null)
                                         {
 
-                                            sw.Write(record.dt.Substring(0, 10) + ";" + record.dt.Substring(10) + "; " + "NULL" + " " + "\n");
+                                            sw.Write(record.dt.Replace("-", "/").Substring(0, 10) + ";" + record.dt.Substring(11) + ";" + "NULL" + " " + "\n");
 
                                         }
                                         else
                                         {
 
-                                            sw.Write(record.dt.Substring(0, 10) + ";" + record.dt.Substring(10) + "; " + record.fof2 + " " + "\n");
+                                            sw.Write(record.dt.Replace("-", "/").Substring(0, 10) + ";" + record.dt.Substring(11) + ";" + record.fof2 + " " + "\n");
 
                                         }
                                     }
@@ -362,9 +364,9 @@ class Program
 
         while (answer2.Day != dias && answer2.Year == since_year && answer2.Month == since_month)
         {
-            string nuevaFechaStr = answer2.ToString("yyyy-MM-dd; HH:mm:ss");
+            string nuevaFechaStr = answer2.ToString("yyyy/MM/dd;HH:mm:ss");
 
-            sw.Write(nuevaFechaStr + "; " + "C" + " " + "\n");
+            sw.Write(nuevaFechaStr + ";" + "C" + " " + "\n");
 
             //incrementa minutos a la fecha imaginaria
             if (bandera2 == false)
@@ -384,9 +386,9 @@ class Program
             while (answer2.Hour != 23)
             {
 
-                string nuevaFechaStr = answer2.ToString("yyyy-MM-dd; HH:mm:ss");
+                string nuevaFechaStr = answer2.ToString("yyyy/MM/dd;HH:mm:ss");
 
-                sw.Write(nuevaFechaStr + "; " + "C" + " " + "\n");
+                sw.Write(nuevaFechaStr + ";" + "C" + " " + "\n");
 
                 //incrementa minutos a la fecha imaginaria
                 if (bandera2 == false)
@@ -406,9 +408,9 @@ class Program
                     while (answer2.Minute != 45 && answer2.Minute != 50)
                     {
 
-                        nuevaFechaStr = answer2.ToString("yyyy-MM-dd; HH:mm:ss");
+                        nuevaFechaStr = answer2.ToString("yyyy/MM/dd;HH:mm:ss");
 
-                        sw.Write(nuevaFechaStr + "; " + "C" + " " + "\n");
+                        sw.Write(nuevaFechaStr + ";" + "C" + " " + "\n");
 
                         //incrementa minutos a la fecha imaginaria
                         if (bandera2 == false)
@@ -422,9 +424,9 @@ class Program
                             answer2 = answer2.AddMinutes(15);
                         }
                     }
-                    nuevaFechaStr = answer2.ToString("yyyy-MM-dd; HH:mm:ss");
+                    nuevaFechaStr = answer2.ToString("yyyy/MM/dd;HH:mm:ss");
 
-                    sw.Write(nuevaFechaStr + "; " + "C" + " " + "\n");
+                    sw.Write(nuevaFechaStr + ";" + "C" + " " + "\n");
                 }
             }
 
